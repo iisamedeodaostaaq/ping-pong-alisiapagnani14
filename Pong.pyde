@@ -1,3 +1,4 @@
+## Prof. Inserire QUI il significato di queste variabili globali
 x=60
 y=60
 xrect2=0
@@ -13,6 +14,7 @@ score2=0
 
 def setup():
     background(13,255) #coloro lo sfondo
+## Prof. In effetti lo sfondo definito qui viene immediatamente sovrascritto da quello che fai in draw
     size(900,600) #dimensione della finestra
     
     
@@ -26,9 +28,12 @@ def draw():
     
 #Dimensioni delle racchette
     rect(xracc,575,100,25)
+## Prof. Avrei usato una variabile o il conto espicito per il calcolo della y della racchetta in basso. Se cambi la dimensione della finestra, non funziona
+
     rect(xracc2,yracc,100,25)
 
-
+## Prof. Non è chiaro cosa sia 25. La pallina ha raggio 35. Infatti cambia direzione prima di toccare gli oggetti
+## Prof. Il giocatore in alto non fa punti
     if (y+25>height-25) and (x+25)>xracc and (x-25)<(xracc+100) :
         yVers  = -1 #allontano la pallina e cambia direzione
         score1 = score1 + 1 #aumento i punti
@@ -41,12 +46,15 @@ def draw():
         
         
         
-        
+## Prof. Non è chiaro cosa sia 25. La pallina ha raggio 35. Infatti cambia direzione prima di toccare gli oggetti
+## Prof. la coordinata x controlla i lati e non su e giù
+      
     if (x+25 > width or x-25 < 0): #se la palla tocca su o giu'
         xVers = xVers * (-1) #allontano la pallina e cambia direzione
     
    
-   
+## Prof. la coordinata y controlla su e giù e non i lati
+
     if (y+25 > height or y-25 < 0): #se la palla tocca a destra o sinistra
         yVers = yVers * (-1) #allontano la pallina e cambia direzione
 
@@ -71,6 +79,7 @@ def draw():
     
     
 def keyPressed():
+## Prof. Le racchette escono dal campo di gioco
     global xracc,xracc2
     if  keyCode == LEFT:
         xracc = xracc-20 
